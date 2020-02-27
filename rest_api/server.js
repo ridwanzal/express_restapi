@@ -18,4 +18,4 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port);
-console.log('Lear node js kiddy, Restful API server started on' + port);
+console.log('Run API for landing page ' + port);

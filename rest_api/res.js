@@ -3,7 +3,18 @@
 exports.ok = function(values, res) {
   var data = {
       'status': 200,
-      'values': values
+      'values': values,
+  };
+  res.json(data);
+  res.end();
+};
+
+
+exports.authsuccess = function(values, res, token) {
+  var data = {
+      'status': 200,
+      'values': values,
+      'token' : token
   };
   res.json(data);
   res.end();
