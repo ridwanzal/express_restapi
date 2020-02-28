@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-    var todoList = require('./controller');
+    var todoList = require('./controllers/index');
     var jwtverify = require('express-jwt');
     var jwtverifying= jwtverify({
         secret: 'keyboard'

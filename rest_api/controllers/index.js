@@ -1,7 +1,7 @@
 'use strict';
 
-var response = require('./res');
-var connection = require('./conn');
+var response = require('../res');
+var connection = require('../conn');
 var jwt = require('jsonwebtoken');
 
 exports.users = function(req, res) {
