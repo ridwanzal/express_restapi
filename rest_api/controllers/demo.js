@@ -28,7 +28,7 @@ exports.add = function(req, res){
                     host: 'smtp.gmail.com',
                     port: 587,
                     secure: false,
-                    requireTLS: true,
+                    requireTLS: false,
                     auth: {
                         // should be replaced with real sender's account
                         user: 'scafoltk@gmail.com',
