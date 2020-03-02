@@ -3,7 +3,7 @@ var con = mysql.createConnection({
     host : "localhost",
     user : "root",
     password : "",
-    database : "scafol_owner"
+    database : "scafol_landing"
 });
 
 con.connect(function(err){
