@@ -27,10 +27,10 @@ exports.add = function(req, res){
                 let transporter = nodemailer.createTransport({
                     host: 'smtp.gmail.com',
                     port: 587,
-                    secure: false,
-                    requireTLS: false,
+                    secure: true,
+                    requireTLS: true,
                     auth: {
-                        // should be replaced with real sender's account
+                        // should be replaced with r    eal sender's account
                         user: 'scafoltk@gmail.com',
                         pass: 'stkakg123'
                     }
