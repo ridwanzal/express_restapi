@@ -16,7 +16,7 @@ var express = require('express')
 	app.use(bodyParser.urlencoded({extended:true}));
 	app.use(bodyParser.json()); // enable body parser 
 	app.use(cors()); // enable cross origin 
-	app.use(morgan('dev')); // log request to console
+	app.use(morgan()); // log request to console
 	app.use(helmet()); // enable content security policy 
 	app.use(dns_prefetch_control()); // dns prefectching
 	app.use(hide_powered_by()); // hide powered by info
