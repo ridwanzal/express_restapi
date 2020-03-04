@@ -34,7 +34,7 @@ exports.add = function(req, res){
                     host: 'smtp.gmail.com',
                     service: 'gmail',
                     port: 465,
-                    secure: true,
+                    secure: false,
                     requireTLS: true,
                     auth: {
                         // should be replaced with r    eal sender's account
@@ -55,6 +55,7 @@ exports.add = function(req, res){
                         return console.log(error);
                     }
                     console.log('Message %s sent: %s', info.messageId, info.response);
+                    transport.close();
                 });
                 response.ok(rows, res);
             }
