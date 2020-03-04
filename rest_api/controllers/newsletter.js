@@ -34,7 +34,7 @@ exports.add = function(req, res){
                     // should be replaced with real recipient's account
                     from: '"Scafol Indonesia" <scafoltk@gmail.com> ',
                     to: '' + email,
-                    subject: 'Terimakasih anda sudah subscribe',
+                    subject: 'Terimakasih anda telah berlangganan',
                     body: 'Kamu akan diarahkan ke email berikut',
                     text: "Terimakasih anda sudah berlangganan newsletter kami. Dapatkan info terbaru seputar dunia konstruksi. Salam PT. Aplikasi Konstruksi Global.",
                 };
