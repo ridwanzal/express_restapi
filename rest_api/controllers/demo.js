@@ -32,7 +32,7 @@ exports.add = function(req, res){
             } else {
                 let transporter = nodemailer.createTransport({
                     host: 'smtp.gmail.com',
-                    port: 587,
+                    port: 465,
                     secure: false,
                     requireTLS: true,
                     auth: {
