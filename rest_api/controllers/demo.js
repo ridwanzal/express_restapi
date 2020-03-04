@@ -33,7 +33,7 @@ exports.add = function(req, res){
                 let transporter = nodemailer.createTransport({
                     host: 'smtp.gmail.com',
                     port: 465,
-                    secure: false,
+                    secure: true,
                     requireTLS: true,
                     auth: {
                         // should be replaced with r    eal sender's account
