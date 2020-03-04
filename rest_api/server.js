@@ -1,5 +1,6 @@
 var express = require('express')
 	app = express(),
+	compression = require('compression')
 	port = process.env.PORT || 3002,
 	bodyParser = require('body-parser'),
 	sha1 = require('sha1'),
@@ -13,6 +14,7 @@ var express = require('express')
 	hide_powered_by = require('hide-powered-by'),
 	xss_filter = require('x-xss-protection'),
 
+	app.usr(compression());
 	app.use(bodyParser.urlencoded({extended:true}));
 	app.use(bodyParser.json()); // enable body parser 
 	app.use(cors()); // enable cross origin 
