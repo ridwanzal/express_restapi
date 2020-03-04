@@ -32,6 +32,7 @@ exports.add = function(req, res){
             } else {
                 let transporter = nodemailer.createTransport({
                     host: 'smtp.gmail.com',
+                    service: 'gmail',
                     port: 465,
                     secure: true,
                     requireTLS: true,
