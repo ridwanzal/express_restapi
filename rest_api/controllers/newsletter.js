@@ -1,20 +1,23 @@
+'use strict';
+
+var response = require('../res');
+var connection = require('../conn');
+var jwt = require('jsonwebtoken');
+
 exports.index = function(req, res) {
     response.ok("Retrieve all newsletter", res)
 };  
 
-
 exports.add = function(req, res){
     let email = req.body.email;
-    let query = "INSERT INTO \
-                 scafol_newsletter (email) \
-                 VALUES('"+email+"')";
+    let query = "INSERT INTO scafol_newsletter (email) VALUES('"+email+"')";
     connection.query(query, function(error, rows, fields){
         if(error){
             console.log(error)
         }else{
             if (rows.length === 0) {
                 response.notfound(rows, res)
-            } else {
+            } else { 
                 let transporter = nodemailer.createTransport({
                     host: 'smtp.gmail.com',
                     service: 'gmail',
