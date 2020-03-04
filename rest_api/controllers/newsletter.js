@@ -1,28 +1,13 @@
-'use strict';
-
-var response = require('../res');
-var connection = require('../conn');
-var jwt = require('jsonwebtoken');
-
 exports.index = function(req, res) {
-    connection.query('SELECT * FROM scl_demo_request', function (error, rows, fields){
-        if(error){
-            console.log(error)
-        } else{
-            response.ok(rows, res)
-        }
-    });
+    response.ok("Retrieve all newsletter", res)
 };  
 
-exports.add = function(req, res){
-    let nama = req.body.nama;
-    let instansi = req.body.instansi;
-    let telepon = req.body.telepon;
-    let email = req.body.email;
 
+exports.add = function(req, res){
+    let email = req.body.email;
     let query = "INSERT INTO \
-                 scl_demo_request (nama, instansi, telepon, email) \
-                 VALUES('"+nama+"','"+instansi+"','"+telepon+"','"+email+"')";
+                 scafol_newsletter (email) \
+                 VALUES('"+email+"')";
     connection.query(query, function(error, rows, fields){
         if(error){
             console.log(error)
@@ -45,9 +30,9 @@ exports.add = function(req, res){
                     // should be replaced with real recipient's account
                     from: '"Scafol Indonesia" <scafoltk@gmail.com> ',
                     to: '' + email,
-                    subject: 'Permintaan demo Scafol Gov',
+                    subject: 'Terimakasih anda sudah subscribe',
                     body: 'Kamu akan diarahkan ke email berikut',
-                    text: "Terimakasih, permintaan anda akan segera kami proses. Tunggu kabar dari kami secapatnya. Salam PT. Aplikasi Konstruksi Global.",
+                    text: "Terimakasih anda sudah berlangganan newsletter kami. Dapatkan info terbaru seputar dunia konstruksi. Salam PT. Aplikasi Konstruksi Global.",
                 };
                 transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
