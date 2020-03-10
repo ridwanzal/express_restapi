@@ -24,20 +24,20 @@ var express = require('express')
 	app.use(hide_powered_by()); // hide powered by info
 	app.use(xss_filter()); // xss filter
 
+	// app.use(function(req, res, next) {
+	// 	res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+	// 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	// 	next();
+	// });
+	
+	app.use((err, req, res, next) => {
+		if (err.name === 'UnauthorizedError') {
+			res.status(500).send(err.message);
+		}
+	});
 var routes = require('./routes');
 routes(app);
 
-app.use(function(req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	next();
-});
-
-app.use((err, req, res, next) => {
-	if (err.name === 'UnauthorizedError') {
-        res.status(500).send(err.message);
-	}
-});
 
 app.listen(port);
 console.log('Run API for landing page ' + port);
